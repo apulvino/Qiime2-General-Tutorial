@@ -1,0 +1,23 @@
+<pre>
+  <code>
+  #!/bin/bash
+
+  #SBATCH --account=<accountspec>
+  #SBATCH --partition=<partitionspec>
+  #SBATCH --job-name=qiime_summaryinfo
+  #SBATCH --output=qiime_summaryinfo.out
+  #SBATCH --error=qiime_summaryinfo.err
+  #SBATCH --time=00:00:00
+  #SBATCH --mem=<number>G
+  #SBATCH --ntasks-per-node=<number>
+  #SBATCH --cpus-per-task=<number>
+  #SBATCH --mail-user=firstname.lastname@northwestern.edu
+  #SBATCH --mail-type=END
+  
+  module load qiime2/2022.8
+
+  qiime diversity alpha-rarefaction --i-table /path/to/your/output/table_dada2_nomito_nochloro.qza \
+  --i-phylogeny /path/to/your/output/rooted_tree.qza --o-visualization /path/to/your/output/alpha_rarefaction --p-max-depth <number> 
+
+  </code>
+</pre>
