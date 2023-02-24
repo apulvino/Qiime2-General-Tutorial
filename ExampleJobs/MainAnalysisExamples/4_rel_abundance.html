@@ -1,0 +1,26 @@
+<pre>
+  <code>
+  #!/bin/bash
+
+  #SBATCH --account=<accountspec>
+  #SBATCH --partition=<partitionspec>
+  #SBATCH --job-name=qiime_summaryinfo
+  #SBATCH --output=qiime_summaryinfo.out
+  #SBATCH --error=qiime_summaryinfo.err
+  #SBATCH --time=00:00:00
+  #SBATCH --mem=<number>G
+  #SBATCH --ntasks-per-node=<number>
+  #SBATCH --cpus-per-task=<number>
+  #SBATCH --mail-user=firstname.lastname@northwestern.edu
+  #SBATCH --mail-type=END
+
+  module load qiime2/2022.8
+  
+  qiime taxa collapse --i-table /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/rarefied_table.qza \
+  --i-taxonomy /path/to/your/output/taxonomy.qza --p-level <Number> --o-collapsed-table /path/to/your/output/table_dada2_nomito_nochloro_even<PSamplingDepthValue>_genus.qza
+
+  qiime tools extract --input-path /path/to/your/output/table_dada2_nomito_nochloro_even<PSamplingDepthValue>_genus.qza \
+  --output-path /path/to/your/output/table_dada2_nomito_nochloro_even<PSamplingDepthValue>_genus
+
+  </code>
+</pre>
