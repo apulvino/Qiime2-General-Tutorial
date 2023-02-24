@@ -21,7 +21,7 @@
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.core.mjs';
       var config = {
-                startOnLoad:true,
+                startOnLoad:false,
                 htmlLabels:true,
                 callback:function(id){
                     console.log(id,' rendered');
@@ -32,10 +32,6 @@
       };
       mermaid.initialize(config);
     </script>
-    <script>
-      const callback = function () {
-        alert('A callback was triggered');
-      };
-    </script>
+
   </body>
 </html>
