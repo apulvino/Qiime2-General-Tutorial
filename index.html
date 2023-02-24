@@ -24,18 +24,13 @@
                 startOnLoad:false,
                 htmlLabels:true,
                 callback:function(id){
-                    console.log(id,' rendered');
+                    console.log(id, 'rendered');
                 },
                 flowchart:{
                         useMaxWidth:false,
                     }
       };
       mermaid.initialize(config);
-    </script>
-    <script>
-      const callback = function () {
-        alert('A callback was triggered');
-      };
     </script>
   </body>
 </html>
