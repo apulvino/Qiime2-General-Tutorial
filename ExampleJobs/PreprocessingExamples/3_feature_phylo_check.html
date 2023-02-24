@@ -1,0 +1,57 @@
+<pre>
+  <code>
+
+  #!/bin/bash
+
+  #SBATCH --account=<accountspec>
+  #SBATCH --partition=<partitionspec>
+  #SBATCH --job-name=dada2
+  #SBATCH --output=dada2.out
+  #SBATCH --error=dada2.err
+  #SBATCH --time=00:00:00
+  #SBATCH --mem=<number>G
+  #SBATCH --ntasks-per-node=<number>
+  #SBATCH --cpus-per-task=<number>
+  #SBATCH --mail-user=firstname.lastname@northwestern.edu
+  #SBATCH --mail-type=END
+
+  module purge all
+  module load qiime2/2022.8
+  qiime feature-table summarize --i-table /path/to/your/output/table_dada2.qza \
+  --o-visualization /path/to/your/output/table_dada2.qzv \
+  --m-sample-metadata-file /path/to/your/output/<MappingFileName>.txt
+
+  qiime feature-table tabulate-seqs --i-data /path/to/your/output/rep_seqs_dada2.qza \
+  --o-visualization /path/to/your/output/rep-seqs_dada2.qzv
+
+  ## Build phylogenetic tree
+  
+  qiime phylogeny align-to-tree-mafft-fasttree --i-sequences /path/to/your/output/rep_seqs_dada2.qza \
+  --o-alignment /path/to/your/output/aligned_rep_seqs_dada2.qza \
+  --o-masked-alignment /path/to/your/output/masked_aligned_rep_seqs_dada2.qza \
+  --o-tree /path/to/your/output/unrooted_tree.qza --o-rooted-tree /path/to/your/output/rooted_tree.qza
+
+  ## Classifying ASVs taxonomically; scikit learn uses a naive bayes classifier. We use the training model here from a collection assembled by the QIIME devs.
+  ## You download this classifier yourself, but explore b1057 first for what's available and double check which kind of classifier is best for your analysis, check with your PI as well if need be.
+  qiime feature-classifier classify-sklearn --i-classifier /path/to/script/containing/directory/<NameOfClassifierChosen>_<VersionInformation>_<YourInitialsOrNetID>.qza \
+  --i-reads /path/to/your/output/rep_seqs_dada2.qza --o-classification /path/to/your/output/taxonomy.qza
+
+  ## List ASVs and taxonomic assignments in table for making observations
+
+  qiime metadata tabulate --m-input-file /path/to/your/output/taxonomy.qza \
+  --o-visualization /path/to/your/output/taxonomy.qzv
+
+  ## Filter chloroplast and mitochondrial sequences
+
+  qiime taxa filter-table --i-table /path/to/your/output/table_dada2.qza \
+  --i-taxonomy /path/to/your/output/taxonomy.qza --p-exclude mitochondria,chloroplast \
+  --o-filtered-table /path/to/your/output/table_dada2_nomito_nochloro.qza
+
+  ## Check seqs were filtered correctly
+
+  qiime feature-table summarize --i-table /path/to/your/output/table_dada2_nomito_nochloro.qza \
+  --o-visualization /path/to/your/output/table_dada2_nomito_nochloro.qzv \
+  --m-sample-metadata-file /path/to/working/directory/containing/<AppropriatelyNamedManifestFile>.txt
+
+  </code>
+</pre>
