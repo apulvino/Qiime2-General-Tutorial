@@ -1,0 +1,32 @@
+<pre>
+  <code>
+  #!/bin/bash
+
+  #SBATCH --account=<accountspec>
+  #SBATCH --partition=<partitionspec>
+  #SBATCH --job-name=qiime_summaryinfo
+  #SBATCH --output=qiime_summaryinfo.out
+  #SBATCH --error=qiime_summaryinfo.err
+  #SBATCH --time=00:00:00
+  #SBATCH --mem=<number>G
+  #SBATCH --ntasks-per-node=<number>
+  #SBATCH --cpus-per-task=<number>
+  #SBATCH --mail-user=firstname.lastname@northwestern.edu
+  #SBATCH --mail-type=END
+
+  module load qiime2/2022.8
+  
+  qiime diversity core-metrics-phylogenetic --i-phylogeny /path/to/your/output/rooted_tree.qza --i-table /path/to/your/output/table_dada2_nomito_nochloro.qza \
+  --p-sampling-depth <Number> --m-metadata-file /path/to/your/<AppropriatelyNamedMappingFile>.txt --output-dir /path/to/your/output/core-metrics-<PSamplingDepthValue>-results
+
+  qiime tools extract --input-path /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/unweighted_unifrac_distance_matrix.qza \
+  --output-path /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/
+
+  qiime tools extract --input-path /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/weighted_unifrac_distance_matrix.qza \
+  --output-path /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/
+
+  qiime emperor plot --i-pcoa  /path/to/your/output/core-metrics-<PSamplingDepthValue>-results/weighted_unifrac_pcoa_results.qza \
+  --m-metadata-file /path/to/your/<AppropriatelyNamedMappingFile>.txt --o-visualization /path/to/your/output/emperor_weighted_unifrac_pcoa_results.qzv
+
+  </code>
+</pre>
