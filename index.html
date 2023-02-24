@@ -4,11 +4,25 @@
         flowchart TD
 
         subgraph cannot-login [User Cannot Connect to Quest]
-      
+            inactive-netid(User NetID Lapsed or Expired)
+            uppercase-netid(User Attempting to Connect with All Caps NetID)
+            old-fastx-browser-link(User connecting via old FastX browser link)
+            no-quest-access(User does not have a Quest account)
+        end        
+
+        click inactive-netid href "google.com" "Diagnostic:\n finger sbc538"
+        click old-fastx-browser-link href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
+        click no-quest-access href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
+        click uppercase-netid href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
+
+
+
+       
+
     </pre>
 
     <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9.4.0/dist/mermaid.esm.min.mjs';
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
       var config = {
                 startOnLoad:true,
                 htmlLabels:true,
@@ -17,7 +31,7 @@
                 },
                 flowchart:{
                         useMaxWidth:false,
-                }
+                    }
       };
       mermaid.initialize(config);
     </script>
