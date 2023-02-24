@@ -1,24 +1,21 @@
 <html>
   <body>
     <pre class="mermaid">
+        
         flowchart TD
-
-        subgraph cannot-login [User Cannot Connect to Quest]
-            inactive-netid(User NetID Lapsed or Expired)
-            uppercase-netid(User Attempting to Connect with All Caps NetID)
-            old-fastx-browser-link(User connecting via old FastX browser link)
-            no-quest-access(User does not have a Quest account)
-        end        
-
-        click inactive-netid href "google.com" "Diagnostic:\n finger sbc538"
-        click old-fastx-browser-link href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
-        click no-quest-access href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
-        click uppercase-netid href "google.com" "This takes you to a ticket which had this problem so you can see what was done"
-
-
-
-       
-
+        A[Amato Lab Qiime2 Workflow]
+        A --> B{1. Preprocessing}
+        B --> |Step 1| D(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/PreprocessingExamples/1_qiime_summaryinfo.html'>Summary Info</a>)
+        D --> |Step 2| E(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/PreprocessingExamples/2_dada2.html'>Dada2</a>)
+        E --> |Step 3| F(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html'>Feature/Phylo/Filter</a>)
+        A --> G{2. Analysis}
+        G --> |Step 1| H(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/1_qualcheck.html'>Quality Check</a>)
+        H --> |Step 2| I(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/2_alpha_diversity.html'>Alpha Diversity</a>)
+        I --> |Step 3| J(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/3_beta_diversity.html'>Beta Diversity)
+        J --> |Step 4| K(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/4_rel_abundance.html'>Relative Abundance)
+        K --> |Step 5| L(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/5_core_microbiome.html'>Core Microbiome)
+        L --> |Step 6| M(<b>Example Job:</b> <a href='https://github.com/apulvino/Qiime2-Basic-Tutorial/blob/main/ExampleJobs/MainAnalysisExamples/6_SupLearn_RandForest.html'>Supervised Learning)
+    
     </pre>
 
     <script type="module">
