@@ -19,23 +19,7 @@
     </pre>
 
     <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@9/dist/mermaid.esm.min.mjs';
-      var config = {
-                startOnLoad:false,
-                htmlLabels:true,
-                callback:function(id){
-                    console.log(id,' rendered');
-                },
-                flowchart:{
-                        useMaxWidth:false,
-                    }
-      };
-      mermaid.initialize(config);
-    </script>
-    <script>
-      const callback = function () {
-        alert('A callback was triggered');
-      };
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
     </script>
   </body>
 </html>
