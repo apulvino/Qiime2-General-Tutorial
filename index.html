@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html lang="en">
     <head>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"></script>
     </head>
     
     <body>
@@ -20,25 +20,5 @@
         K --> |Step 5| L(<b>Example Job:</b> <a href='./ExampleJobs/MainAnalysisExamples/5_core_microbiome.html'>Core Microbiome)
         L --> |Step 6| M(<b>Example Job:</b> <a href='./ExampleJobs/MainAnalysisExamples/6_SupLearn_RandForest.html'>Supervised Learning)
       </pre>
-      
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-      var config = {
-        startOnLoad:true,
-        htmlLabels:true,
-        callback:function(id){
-          console.log(id,' rendered');
-        },
-        flowchart:{
-          useMaxWidth:false,
-        }
-      };
-      mermaid.initialize(config);
-    </script>
-    <script>
-      const callback = function () {
-      alert('A callback was triggered');
-      };
-    </script>
-  </body>
-</html>
+    </body>
+  </html>
