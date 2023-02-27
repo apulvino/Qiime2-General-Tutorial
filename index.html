@@ -3,9 +3,9 @@
   <body>
     <pre class="mermaid">
   flowchart TD
-      A ---> B
-      B --> C[fa:fa-ban forbidden]
-      B --> D(fa:fa-spinner);
+      A[Amato Lab Qiime2 Workflow]
+      A --> B{1. Preprocessing}
+      B --> |Step 1| D(<b>Example Job:</b> <a href='./ExampleJobs/PreprocessingExamples/1_qiime_summaryinfo.html'>Summary Info</a>);
     </pre>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
