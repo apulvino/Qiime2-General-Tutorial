@@ -3,15 +3,15 @@
 
   #!/bin/bash
 
-  #SBATCH --account=<accountspec>
-  #SBATCH --partition=<partitionspec>
+  #SBATCH --account=b1057
+  #SBATCH --partition=b1057
   #SBATCH --job-name=dada2
   #SBATCH --output=dada2.out
   #SBATCH --error=dada2.err
-  #SBATCH --time=00:00:00
-  #SBATCH --mem=<number>G
-  #SBATCH --ntasks-per-node=<number>
-  #SBATCH --cpus-per-task=<number>
+  #SBATCH --time=10:00:00
+  #SBATCH --mem=80G
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=12
   #SBATCH --mail-user=firstname.lastname@northwestern.edu
   #SBATCH --mail-type=END
 
@@ -19,7 +19,7 @@
   module load qiime2/2022.8
   qiime feature-table summarize --i-table /path/to/your/output/table_dada2.qza \
   --o-visualization /path/to/your/output/table_dada2.qzv \
-  --m-sample-metadata-file /path/to/your/output/<MappingFileName>.txt
+  --m-sample-metadata-file /path/to/your/MappingFile.txt
 
   qiime feature-table tabulate-seqs --i-data /path/to/your/output/rep_seqs_dada2.qza \
   --o-visualization /path/to/your/output/rep-seqs_dada2.qzv
@@ -33,7 +33,7 @@
 
   ## Classifying ASVs taxonomically; scikit learn uses a naive bayes classifier. We use the training model here from a collection assembled by the QIIME devs.
   ## You download this classifier yourself, but explore b1057 first for what's available and double check which kind of classifier is best for your analysis, check with your PI as well if need be.
-  qiime feature-classifier classify-sklearn --i-classifier /path/to/script/containing/directory/<NameOfClassifierChosen>_<VersionInformation>_<YourInitialsOrNetID>.qza \
+  qiime feature-classifier classify-sklearn --i-classifier /path/to/script/containing/directory/NameOfClassifierChosen_VersionInformation_YourInitialsOrNetID.qza \
   --i-reads /path/to/your/output/rep_seqs_dada2.qza --o-classification /path/to/your/output/taxonomy.qza
 
   ## List ASVs and taxonomic assignments in table for making observations
@@ -51,7 +51,7 @@
 
   qiime feature-table summarize --i-table /path/to/your/output/table_dada2_nomito_nochloro.qza \
   --o-visualization /path/to/your/output/table_dada2_nomito_nochloro.qzv \
-  --m-sample-metadata-file /path/to/working/directory/containing/<AppropriatelyNamedManifestFile>.txt
+  --m-sample-metadata-file /path/to/your/MappingFile.txt
 
   </code>
 </pre>
