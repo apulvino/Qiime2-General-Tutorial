@@ -12,6 +12,18 @@
       D --> |Step 3| E(<b>Example Job:</b> <a>Feature/Phylo/Filter</a>)
       click E "./ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html"
       A --> F{2. Analysis}
+      F --> |Step 1| G(<b>Example Job:</b> <a>Quality Check</a>)
+      click G "./ExampleJobs/MainAnalysisExamples/1_qualcheck.html"
+      G --> |Step 2| H(<b>Example Job:</b> <a>Alpha Diversity</a>)
+      click H "./ExampleJobs/MainAnalysisExamples/2_alpha_diversity.html"
+      H --> |Step 3| I(<b>Example Job:</b> <a>Beta Diversity</a>)
+      click I "./ExampleJobs/MainAnalysisExamples/3_beta_diversity.html"
+      I --> |Step 4| J(<b>Example Job:</b> <a>Relative Abundance</a>)
+      click J "./ExampleJobs/MainAnalysisExamples/4_rel_abundance.html"
+      J --> |Step 5| K(<b>Example Job:</b> <a>Core Microbiome</a>)
+      click K "./ExampleJobs/MainAnalysisExamples/5_core_microbiome.html"
+      K --> |Step 6| L(<b>Example Job:</b> <a>Supervised Learning</a>)
+      click L "./ExampleJobs/MainAnalysisExamples/6_SupLearn_RandForest.html"
     </pre>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
