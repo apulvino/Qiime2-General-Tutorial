@@ -2,22 +2,22 @@
   <code>
   #!/bin/bash
 
-  #SBATCH --account=<accountspec>
-  #SBATCH --partition=<partitionspec>
+  #SBATCH --account=b1057
+  #SBATCH --partition=b1057
   #SBATCH --job-name=dada2
   #SBATCH --output=dada2.out
   #SBATCH --error=dada2.err
-  #SBATCH --time=00:00:00
-  #SBATCH --mem=<number>G
-  #SBATCH --ntasks-per-node=<number>
-  #SBATCH --cpus-per-task=<number>
+  #SBATCH --time=10:00:00
+  #SBATCH --mem=30G
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=2
   #SBATCH --mail-user=firstname.lastname@northwestern.edu
   #SBATCH --mail-type=END
 
   module load qiime2/2022.8
 
-  qiime dada2 denoise-paired --i-demultiplexed-seqs /path/to/your/output/<AppropriatelyNamed>.qza \
-  --p-trim-left-f <number> --p-trim-left-r <number> --p-trunc-len-f <number> --p-trunc-len-r <number> \
+  qiime dada2 denoise-paired --i-demultiplexed-seqs /path/to/your/output/AppropriatelyNamed.qza \
+  --p-trim-left-f AppropriateValue --p-trim-left-r AppropriateValue --p-trunc-len-f AppropriateValue --p-trunc-len-r AppropriateValue \
   --o-representative-sequences /path/to/your/output/rep_seqs_dada2.qza \
   --o-table /path/to/your/output/table_dada2.qza --o-denoising-stats /path/to/your/output/stats_dada2.qza
 
