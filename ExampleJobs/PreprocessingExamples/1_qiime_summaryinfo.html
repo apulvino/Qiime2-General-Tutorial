@@ -2,15 +2,15 @@
   <code>
   #!/bin/bash
 
-  #SBATCH --account=<accountspec>
-  #SBATCH --partition=<partitionspec>
+  #SBATCH --account=b1057
+  #SBATCH --partition=b1057
   #SBATCH --job-name=qiime_summaryinfo
   #SBATCH --output=qiime_summaryinfo.out
   #SBATCH --error=qiime_summaryinfo.err
-  #SBATCH --time=00:00:00
-  #SBATCH --mem=<number>G
-  #SBATCH --ntasks-per-node=<number>
-  #SBATCH --cpus-per-task=<number>
+  #SBATCH --time=10:00:00
+  #SBATCH --mem=30G
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=2
   #SBATCH --mail-user=firstname.lastname@northwestern.edu
   #SBATCH --mail-type=END
 
