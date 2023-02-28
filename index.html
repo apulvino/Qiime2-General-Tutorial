@@ -7,11 +7,11 @@
       A --> B{1. Preprocessing}
       B --> |Step 1| C(<b>Example Job:</b> <a>Summary Info</a>)
       click C "./ExampleJobs/PreprocessingExamples/1_qiime_summaryinfo.html"
-      D --> |Step 2| E(<b>Example Job:</b> <a>Dada2</a>)
-      click E "./ExampleJobs/PreprocessingExamples/2_dada2.html"
-      F --> |Step 3| G(<b>Example Job:</b> <a>Feature/Phylo/Filter</a>)
-      click G "./ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html"
-      A --> H{2. Analysis}
+      C --> |Step 2| D(<b>Example Job:</b> <a>Dada2</a>)
+      click D "./ExampleJobs/PreprocessingExamples/2_dada2.html"
+      D --> |Step 3| E(<b>Example Job:</b> <a>Feature/Phylo/Filter</a>)
+      click E "./ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html"
+      A --> F{2. Analysis}
       I --> |Step 1| J(<b>Example Job:</b> <a>Quality Check</a>)
       click J "./ExampleJobs/MainAnalysisExamples/1_qualcheck.html"
       K --> |Step 1| L(<b>Example Job:</b> <a>Quality Check</a>)
