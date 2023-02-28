@@ -8,22 +8,7 @@
       B --> |Step 1| D(<b>Example Job:</b> <a>Summary Info</a>)
       click D "./ExampleJobs/PreprocessingExamples/1_qiime_summaryinfo.html"
       D --> |Step 2| E(<b>Example Job:</b> <a>Dada2</a>)
-      click E './ExampleJobs/PreprocessingExamples/2_dada2.html'
-      E --> |Step 3| F(<b>Example Job:</b> <a>Feature/Phylo/Filter</a>)
-      click F './ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html'
-      A --> G{2. Analysis}
-      G --> |Step 1| H(<b>Example Job:</b> <a>Quality Check</a>)
-      click H './ExampleJobs/MainAnalysisExamples/1_qualcheck.html'
-      H --> |Step 2| I(<b>Example Job:</b> <a>Alpha Diversity</a>)
-      click I './ExampleJobs/MainAnalysisExamples/2_alpha_diversity.html'
-      I --> |Step 3| J(<b>Example Job:</b> <a>Beta Diversity</a>)
-      click J './ExampleJobs/MainAnalysisExamples/3_beta_diversity.html'
-      J --> |Step 4| K(<b>Example Job:</b> <a>Relative Abundance</a>)
-      click K './ExampleJobs/MainAnalysisExamples/4_rel_abundance.html'
-      K --> |Step 5| L(<b>Example Job:</b> <a>Core Microbiome</a>)
-      click L './ExampleJobs/MainAnalysisExamples/5_core_microbiome.html'
-      L --> |Step 6| M(<b>Example Job:</b> <a>Supervised Learning</a>)
-      click M './ExampleJobs/MainAnalysisExamples/6_SupLearn_RandForest.html'
+      click E "./ExampleJobs/PreprocessingExamples/2_dada2.html"
     </pre>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
