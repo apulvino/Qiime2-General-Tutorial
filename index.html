@@ -9,6 +9,8 @@
       click D "./ExampleJobs/PreprocessingExamples/1_qiime_summaryinfo.html"
       D --> |Step 2| E(<b>Example Job:</b> <a>Dada2</a>)
       click E "./ExampleJobs/PreprocessingExamples/2_dada2.html"
+      E --> |Step 3| F(<b>Example Job:</b> <a>Feature/Phylo/Filter</a>)
+      click F "./ExampleJobs/PreprocessingExamples/3_feature_phylo_check.html"
     </pre>
     <script type="module">
       import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
