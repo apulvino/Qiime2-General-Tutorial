@@ -16,14 +16,14 @@
 
   module load qiime2/2022.8
 
-  qiime tools import --input-path /path/to/your/<ManifestFile>.csv \
-  --output-path /path/to/your/output/<AppropriatelyNamed>.qza --type SampleData[PairedEndSequencesWithQuality] \
+  qiime tools import --input-path /path/to/your/ManifestFile.csv \
+  --output-path /path/to/your/output/AppropriatelyNamed.qza --type SampleData[PairedEndSequencesWithQuality] \
   --input-format PairedEndFastqManifestPhred33
 
   ## summarizing manifest file
   ##output qza from above should be passed to --i-data
-  qiime demux summarize --i-data /path/to/your/output/<AppropriatelyNamed>.qza \
-  --o-visualization /path/to/your/output/visualization/<AppropriatelyNamed>.qzv
+  qiime demux summarize --i-data /path/to/your/output/AppropriatelyNamed.qza \
+  --o-visualization /path/to/your/output/visualization/AppropriatelyNamed.qzv
 
   ## the next step is dada2; you'll have to manually decide cutoff values there. See the dada2 .sh files for more details
 
