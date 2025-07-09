@@ -11,7 +11,7 @@
   #SBATCH --time=10:00:00
   #SBATCH --mem=80G
   #SBATCH --ntasks-per-node=1
-  #SBATCH --cpus-per-task=12
+  #SBATCH --cpus-per-task=6
   #SBATCH --mail-user=firstname.lastname@northwestern.edu
   #SBATCH --mail-type=END
 
@@ -29,12 +29,14 @@
   qiime phylogeny align-to-tree-mafft-fasttree --i-sequences /path/to/your/output/rep_seqs_dada2.qza \
   --o-alignment /path/to/your/output/aligned_rep_seqs_dada2.qza \
   --o-masked-alignment /path/to/your/output/masked_aligned_rep_seqs_dada2.qza \
-  --o-tree /path/to/your/output/unrooted_tree.qza --o-rooted-tree /path/to/your/output/rooted_tree.qza
+  --o-tree /path/to/your/output/unrooted_tree.qza --o-rooted-tree /path/to/your/output/rooted_tree.qza \
+  --p-n-threads 6
 
   ## Classifying ASVs taxonomically; scikit learn uses a naive bayes classifier. We use the training model here from a collection assembled by the QIIME devs.
   ## You download this classifier yourself, but explore b1057 first for what's available and double check which kind of classifier is best for your analysis, check with your PI as well if need be.
   qiime feature-classifier classify-sklearn --i-classifier /path/to/script/containing/directory/NameOfClassifierChosen_VersionInformation_YourInitialsOrNetID.qza \
-  --i-reads /path/to/your/output/rep_seqs_dada2.qza --o-classification /path/to/your/output/taxonomy.qza
+  --i-reads /path/to/your/output/rep_seqs_dada2.qza --o-classification /path/to/your/output/taxonomy.qza \
+  --p-n-jobs -1
 
   ## List ASVs and taxonomic assignments in table for making observations
 
